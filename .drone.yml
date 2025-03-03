@@ -1,3 +1,4 @@
+---
 kind: pipeline
 type: kubernetes
 name: default
@@ -18,3 +19,8 @@ steps:
 trigger:
   event:
     - push
+---
+kind: signature
+hmac: 428a8a2090be82185ca2705b1e86e03755eed35c5e54468291b3e8db97f9cd2e
+
+...
