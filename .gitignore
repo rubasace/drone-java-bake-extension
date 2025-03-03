@@ -1,0 +1,10 @@
+# Ignore everything by default.
+*
+
+# Only allow specific files and dirs.
+!.drone.yml
+!.gitignore
+!Dockerfile
+!entrypoint.sh
+!app-entrypoint.sh
+!README.md

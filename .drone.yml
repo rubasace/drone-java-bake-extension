@@ -1,0 +1,20 @@
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+  - name: bake-beta
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: dockerhub_user
+      password:
+        from_secret: dockerhub_pass
+      repo: rubasace/drone-java-bake-extension
+      tags: beta
+    when:
+      branch:
+        - main
+trigger:
+  event:
+    - push
