@@ -11,7 +11,6 @@ DOCKER_AUTHENTICATION=""
 
 mvn jib:dockerBuild \
         -s ".ci/settings.xml" \
-        -Dmaven.repo.local="/home/maven/.m2" \
         -Djib.to.image="${CONTAINER}" \
         -Djib.container.user="${CONTAINER_UID}":"${CONTAINER_GID}" \
         -Djib.extraDirectories.paths='/jib-files' \
