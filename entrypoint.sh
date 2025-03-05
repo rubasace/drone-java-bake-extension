@@ -8,7 +8,7 @@ CONTAINER_GID="${PLUGIN_CONTAINER_GID:-1000}"
 
 # Ensure PLUGIN_CONTAINER is set
 if [[ -z "${PLUGIN_CONTAINER}" ]]; then
-  echo "Error: 'container' setting is required but not provided."
+  echo "Error: 'container' setting is required but it was not provided."
   exit 1
 fi
 
