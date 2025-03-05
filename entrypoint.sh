@@ -10,7 +10,6 @@ DOCKER_AUTHENTICATION=""
 [ -n "${DOCKER_PASS}" ] && DOCKER_AUTHENTICATION+="-Djib.from.auth.password=${DOCKER_PASS}"
 
 mvn jib:dockerBuild \
-        -s ".ci/settings.xml" \
         -Djib.to.image="${CONTAINER}" \
         -Djib.container.user="${CONTAINER_UID}":"${CONTAINER_GID}" \
         -Djib.extraDirectories.paths='/jib-files' \
