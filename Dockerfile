@@ -12,9 +12,6 @@ RUN chmod 500 /entrypoint.sh
 
 COPY ./app-entrypoint.sh /jib-files/app/entrypoint.sh
 
-RUN chmod 500 /jib-files/app/entrypoint.sh && \
-    chown "${CONTAINER_UID}:${CONTAINER_GID}" /jib-files/app/entrypoint.sh
-
 # Fix vulnerabilities
 RUN apk -U upgrade
 

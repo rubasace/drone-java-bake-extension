@@ -8,7 +8,7 @@ DOCKER_AUTHENTICATION=""
 
 mvn jib:build \
         -Djib.to.image="${CONTAINER}" \
-        -Djib.container.user="${CONTAINER_UID}":"${CONTAINER_GID}" \
+        -Djib.container.user="1000:999" \
         -Djib.extraDirectories.paths='/jib-files' \
         -Djib.extraDirectories.permissions='/app/entrypoint.sh'='500' \
         -Djib.container.entrypoint="/app/entrypoint.sh" \
