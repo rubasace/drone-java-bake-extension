@@ -11,7 +11,7 @@ steps:
         from_secret: dockerhub_user
       password:
         from_secret: dockerhub_pass
-      repo: rubasace/drone-java-bake-extension
+      repo: rubasace/drone-java-bake-plugin
       tags: beta
     when:
       branch:
@@ -21,6 +21,6 @@ trigger:
     - push
 ---
 kind: signature
-hmac: 428a8a2090be82185ca2705b1e86e03755eed35c5e54468291b3e8db97f9cd2e
+hmac: 8159dfad3b8c2f4869de28d36c1c9ee37d1f729a482e1c794d8d3dc2b1cfd428
 
 ...
