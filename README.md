@@ -1,6 +1,6 @@
 # Drone Java Bake Plugin #
 
-[![Build Status](https://drone.nasvigo.com/api/badges/rubasace/drone-java-bake-extension/status.svg)](https://drone.nasvigo.com/rubasace/drone-java-bake-extension)
+[![Build Status](https://drone.nasvigo.com/api/badges/rubasace/drone-java-bake-plugin/status.svg)](https://drone.nasvigo.com/rubasace/drone-java-bake-plugin)
 
 This Drone plugin can be used to generate Docker images from Java compiled applications, as part of the CI process.
 
