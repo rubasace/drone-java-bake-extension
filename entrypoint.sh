@@ -4,7 +4,7 @@ set -e  # Exit immediately on error
 
 # Default values for container UID/GID
 CONTAINER_UID="${PLUGIN_CONTAINER_UID:-1000}"
-CONTAINER_GID="${PLUGIN_CONTAINER_GID:-999}"
+CONTAINER_GID="${PLUGIN_CONTAINER_GID:-1000}"
 
 # Ensure PLUGIN_CONTAINER is set
 if [[ -z "${PLUGIN_CONTAINER}" ]]; then
@@ -14,8 +14,8 @@ fi
 
 # Handle Docker authentication
 DOCKER_AUTHENTICATION=""
-[ -n "${PLUGIN_DOCKER_USER}" ] && DOCKER_AUTHENTICATION+="-Djib.to.auth.username=${PLUGIN_DOCKER_USER} "
-[ -n "${PLUGIN_DOCKER_PASS}" ] && DOCKER_AUTHENTICATION+="-Djib.to.auth.password=${PLUGIN_DOCKER_PASS}"
+[ -n "${PLUGIN_REGISTRY_USER}" ] && DOCKER_AUTHENTICATION+="-Djib.to.auth.username=${PLUGIN_REGISTRY_USER} "
+[ -n "${PLUGIN_REGISTRY_PASS}" ] && DOCKER_AUTHENTICATION+="-Djib.to.auth.password=${PLUGIN_REGISTRY_PASS}"
 
 # Process extra JIB options: remove commas and convert to space-separated string
 EXTRA_JIB_OPTIONS=""
