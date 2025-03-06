@@ -24,7 +24,7 @@ if [[ -n "${PLUGIN_EXTRA_JIB_OPTIONS}" ]]; then
 fi
 
 # Run Maven JIB build
-mvn jib:build \
+mvn com.google.cloud.tools:jib-maven-plugin:build \
         -Djib.to.image="${PLUGIN_CONTAINER}" \
         -Djib.container.user="${CONTAINER_UID}:${CONTAINER_GID}" \
         -Djib.extraDirectories.paths='/jib-files' \
