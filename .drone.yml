@@ -19,7 +19,7 @@ steps:
       event:
         - push
 
-  - name: bake-release
+  - name: deploy-release
     image: plugins/docker
     settings:
       username:
@@ -40,6 +40,6 @@ trigger:
     - promote
 ---
 kind: signature
-hmac: a5ba470f0243ea699cea77ffdd6aa51fb7fa7894fd7b6dc8b77d91ff02f390e6
+hmac: 99c5c4aa13163605b3c456c71599f387b6e930e5808b1348aee8a102293342ad
 
 ...
