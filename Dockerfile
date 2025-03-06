@@ -4,19 +4,18 @@ ENV HOME=/root
 
 RUN mkdir -p "${HOME}/.m2/repository"
 
+RUN apk add --no-cache bash maven docker
+
+RUN apk del --purge apk-tools && \
+    rm -rf /sbin/apk /etc/apk /lib/apk /usr/share/apk /var/lib/apk
+
 COPY ./entrypoint.sh .
 
 RUN chmod 500 /entrypoint.sh
 
 COPY ./app-entrypoint.sh /jib-files/app/entrypoint.sh
 
-# Fix vulnerabilities
-RUN apk -U upgrade
 
-RUN apk add --no-cache bash maven docker
-
-RUN apk del --purge apk-tools && \
-    rm -rf /sbin/apk /etc/apk /lib/apk /usr/share/apk /var/lib/apk
 
 ENTRYPOINT ["/entrypoint.sh"]
 
