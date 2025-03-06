@@ -4,7 +4,7 @@ type: kubernetes
 name: default
 
 steps:
-  - name: bake-beta
+  - name: deploy-beta
     image: plugins/docker
     settings:
       username:
@@ -16,11 +16,39 @@ steps:
     when:
       branch:
         - main
+      event:
+        - push
+
+  - name: bake-release
+    image: plugins/docker
+    settings:
+      username:
+        from_secret: dockerhub_user
+      password:
+        from_secret: dockerhub_pass
+      repo: rubasace/drone-java-bake-plugin
+      tags:
+        - latest
+        - ${CI_BUILD_TARGET}
+    when:
+      event:
+        - promote
+
+  - name: tag-release
+    image: docker:git
+    commands:
+      - git tag ${CI_BUILD_TARGET}
+      - git push origin ${CI_BUILD_TARGET}
+    when:
+      event:
+        - promote
+
 trigger:
   event:
     - push
+    - promote
 ---
 kind: signature
-hmac: 8159dfad3b8c2f4869de28d36c1c9ee37d1f729a482e1c794d8d3dc2b1cfd428
+hmac: af013c38cace25de378745a484ef4ad3d7417d9701dc147d37e0e828ece6e15c
 
 ...
