@@ -15,7 +15,4 @@ RUN chmod 500 /entrypoint.sh
 
 COPY ./app-entrypoint.sh /jib-files/app/entrypoint.sh
 
-
-
 ENTRYPOINT ["/entrypoint.sh"]
-
