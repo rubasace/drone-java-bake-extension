@@ -34,23 +34,12 @@ steps:
       event:
         - promote
 
-  - name: tag-release
-    image: docker:git
-    commands:
-      - git add .
-      - git commit --allow-empty -m "Release ${CI_BUILD_TARGET}"
-      - git tag ${CI_BUILD_TARGET}
-      - git push origin ${CI_BUILD_TARGET}
-    when:
-      event:
-        - promote
-
 trigger:
   event:
     - push
     - promote
 ---
 kind: signature
-hmac: 11ce925334b67d129e7a3158839c1e483f5cff0e7f9322c32322cc4aa80f185c
+hmac: a5ba470f0243ea699cea77ffdd6aa51fb7fa7894fd7b6dc8b77d91ff02f390e6
 
 ...
