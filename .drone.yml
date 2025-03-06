@@ -37,6 +37,8 @@ steps:
   - name: tag-release
     image: docker:git
     commands:
+      - git add .
+      - git commit --allow-empty -m "Release ${CI_BUILD_TARGET}"
       - git tag ${CI_BUILD_TARGET}
       - git push origin ${CI_BUILD_TARGET}
     when:
